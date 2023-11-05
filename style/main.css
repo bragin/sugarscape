@@ -1,14 +1,14 @@
-
+/*
 html, body {
   margin: 0;
   padding: 0;
-  /*background: #faf8ef;*/
+  background: #f8f8ff;
   color: #776e65;
   font-family: Arial, sans-serif;
 }
 
 h1.title {
-  font-size: 80px;
+  font-size: 60px;
   font-weight: bold;
   margin: 0;
   display: block;
@@ -19,9 +19,45 @@ h1.title {
   width: 500px;
   margin: 0 auto; 
 }
+*/
+
+html, body {
+  background: #f8f8ff;
+}
 
 #sugarScape {
   margin-top: 100px;
+  border: 1px solid;
+}
+
+/*
+* -- BASE STYLES --
+* Most of these are inherited from Base, but I want to change a few.
+*/
+body {
+  color: #7f8c8d;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+label {
+  color: #34495e;
+}
+
+.is-center {
+  text-align: center;
+}
+
+/* This is the class used for the footer */
+.footer {
+  background: #111;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
 
 

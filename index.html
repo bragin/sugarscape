@@ -2,18 +2,69 @@
 <html lang='en'>
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Sugarscape</title>
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link href="style/main.css" rel="stylesheet" type="text/css">
     <link rel="shortcut icon" href="favicon.ico">
 </head>
+
 <body>
-    <div class="container">
-        <h1 class="title">Sugarscape</h1>
-        <canvas id="sugarScape"  style="width: 800; height: 600"></canvas>
-        <script type="text/javascript" src="js/render.js"></script>
-        <script type="text/javascript" src="js/agent.js"></script>
-        <script type="text/javascript" src="js/logic.js"></script>
-    </div>
+    <section class="hero is-small is-info has-background-grey">
+        <div class="hero-body">
+          <p class="title">
+            SugarScape
+          </p>
+          <p class="subtitle">
+            Javascript implementation of famous SugarScape model
+          </p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+            <nav class="level">
+                <div class="level-item has-text-centered">
+                  <div>
+                    <p class="heading">Agents</p>
+                    <p class="title" id="topTotalAgents">0</p>
+                  </div>
+                </div>
+                <div class="level-item has-text-centered">
+                  <div>
+                    <p class="heading">Ticks</p>
+                    <p class="title" id="topTicks">0</p>
+                  </div>
+                </div>
+                <!--
+                <div class="level-item has-text-centered">
+                  <div>
+                    <p class="heading">Else</p>
+                    <p class="title">456K</p>
+                  </div>
+                </div>
+                <div class="level-item has-text-centered">
+                  <div>
+                    <p class="heading">Likes</p>
+                    <p class="title">789</p>
+                  </div>
+                </div>-->
+              </nav>
+            
+            <div class="has-text-centered">
+                <canvas id="sugarScape"></canvas>
+            </div>
+            <script type="text/javascript" src="js/render.js"></script>
+            <script type="text/javascript" src="js/agent.js"></script>
+            <script type="text/javascript" src="js/logic.js"></script>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="content has-text-centered">
+            Footer.
+        </div>
+    </footer>
 </body>
 </html>

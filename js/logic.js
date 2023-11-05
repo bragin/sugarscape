@@ -9,7 +9,8 @@ var agentCnt        =   250;
 var maxSugar        =   30;
 var maxProduction   =   1;
 var agents          =   Array(agentCnt);
-var fps             =   3;
+var fps             =   1;
+var ticks           =   0;
 
 //--------------------------agent constant------------------------
 var visionRange     =   6;
@@ -94,11 +95,23 @@ function test_init_agent()
     }
 }
 
+function update_stats()
+{
+    let totalAgents = document.getElementById('topTotalAgents');
+    totalAgents.innerText = agentCnt;
+
+    let totalTicks = document.getElementById('topTicks');
+    totalTicks.innerText = ticks;
+
+}
+
 function process_one_frame()
 {
     process_one_frame_agent();
     draw();
     product_sugar();
+    update_stats();
+    ticks++;
     setTimeout(process_one_frame, 1000/fps);
 }
 
