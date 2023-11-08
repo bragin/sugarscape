@@ -6,8 +6,8 @@ var lineWidth = 1;
 var halfLineWidth = lineWidth/2;
 var halfUnit = unit/2;
 var fullRadius = halfUnit-lineWidth;
-var sugarColor = 'yellow';
-var agentColor = 'blue';
+var sugarColor = 'rgba(212,175,55,100%)';
+var agentColor = 'rgba(0,0,255,70%)';
 
 function setCanvas()
 {
@@ -17,6 +17,7 @@ function setCanvas()
     ctx.lineWidth= lineWidth;
 }
 
+// unused?
 function drawGrid()
 {
     for (var i=0; i<=cntY; i++) {
@@ -39,6 +40,16 @@ function drawCircle(centerX, centerY, radius, color)
     ctx.fillStyle = color;
     ctx.fill();
 }
+
+function drawRect(centerX, centerY, width, color)
+{
+    ctx.beginPath();
+    //ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
+    ctx.roundRect(centerX - width, centerY - width, width*2, width*2, 0);
+    ctx.fillStyle = color;
+    ctx.fill();
+}
+
 
 /*
 draw the sugar,
@@ -65,10 +76,15 @@ function drawSugarColor(src, max)
         var i = Math.floor(idx / cntX), j = idx % cntX;
         var cx = j*unit+halfUnit, cy = i*unit+halfUnit;
         ctx.clearRect(j*unit, i*unit, unit, unit);
-        var blue = 255-Math.floor(Math.min(max, src[idx])/max*255);
-        var color = 'rgb(255,255,'+blue+')';
-        //var color = 'rgb('+blue+',255,255)';
-        drawCircle(cx, cy, fullRadius, color);
+
+        //var blue = 255-Math.floor(Math.min(max, src[idx])/max*255);
+        //var color = 'rgb(255,255,'+blue+')';
+
+        var intensity = Math.floor(Math.min(max, src[idx])/max*100);
+        var color = `rgba(212,175,55,${intensity}%)`;
+        
+        //drawCircle(cx, cy, fullRadius, color);
+        drawRect(cx, cy, fullRadius, color);
     }
 }
 
@@ -76,6 +92,7 @@ function drawSugar()
 {
     //drawSugarColor(sugarProduction, maxProduction);
     drawSugarColor(sugar, maxSugar);
+    //drawSugarRadius(sugar, maxSugar);
 }
 
 function drawAgents()
